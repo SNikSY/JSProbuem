@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ru">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="libs/gsap/gsap.min.js" defer></script>
+    <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+    <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --index: calc(1vw+1vh);
+  --text: rgb(255, 253, 251);
+  --transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+}
+div {
+  position: fixed;
+  top: 0;
+  width: 1920px;
+  height: 1024px;
+  background-color: black;
+  overflow: hidden;
+}
+
+ul {
+  position: relative;
+}
+
+li {
+  position: absolute;
+  width: 100%;
+}
+
+img {
+  display: block;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  opacity: var(--o, 0);
+}
+
+section {
+  width: 100%;
+  height: 18000vh;
+}
+    </style>
+  <script>
+onscroll = e => {
+const imgs = document.querySelectorAll('img');
+const n = Math.floor(pageYOffset / innerHeight);
+const m = (pageYOffset % innerHeight)/innerHeight *1000000;
+
+imgs.forEach((img, i) => {
+i = (n == i) ? 1 - m : (n + 1 == i) ? m : 0;
+i = Math.max(0, Math.min(1, i));
+img.style.setProperty('--o', i*2)
+})
+}
+</script>
+
+</head>
+<body>
+<div>
+  <ul>
+    <li>
+      <img id="img0" style="--o: 1" src="images/01.png">
+    </li>
+    <li>
+      <img id="img1" style="--o: 0" src="images/02.png">
+    </li>
+    <li>
+      <img id="img2" style="--o: 0" src="images/03.png">
+    </li>
+    <li>
+      <img id="img3" style="--o: 0" src="images/04.png">
+    </li>
+    <li>
+      <img id="img4" style="--o: 0" src="images/05.png">
+    </li>
+    <li>
+      <img id="img5" style="--o: 0" src="images/06.png">
+    </li>
+    <li>
+      <img id="img6" style="--o: 0" src="images/07.png">
+    </li>
+    <li>
+      <img id="img7" style="--o: 0" src="images/08.png">
+    </li>
+    <li>
+      <img id="img8" style="--o: 0" src="images/09.png">
+    </li>
+    <li>
+      <img id="img9" style="--o: 0" src="images/010.png">
+    </li>
+    <li>
+      <img id="img10" style="--o: 0" src="images/011.png">
+    </li>
+    <li>
+      <img id="img11" style="--o: 0" src="images/012.png">
+    </li>
+    <li>
+      <img id="img12" style="--o: 0" src="images/013.png">
+    </li>
+    <li>
+      <img id="img13" style="--o: 0" src="images/014.png">
+    </li>
+    <li>
+      <img id="img15" style="--o: 0" src="images/015.png">
+    </li>
+    <li>
+      <img id="img16" style="--o: 0" src="images/016.png">
+    </li>
+    <li>
+      <img id="img17" style="--o: 0" src="images/017.png">
+    </li>
+    <li>
+      <img id="img18" style="--o: 0" src="images/018.png">
+    </li>
+    <li>
+      <img id="img19" style="--o: 0" src="images/019.png">
+    </li>
+    <li>
+      <img id="img13" style="--o: 0" src="images/020.png">
+    </li>
+    <li>
+      <img id="img20" style="--o: 0" src="images/021.png">
+    </li>
+    <li>
+      <img id="img21" style="--o: 0" src="images/022.png">
+    </li>
+    <li>
+      <img id="img22" style="--o: 0" src="images/023.png">
+    </li>
+    <li>
+      <img id="img23" style="--o: 0" src="images/024.png">
+    </li>
+    <li>
+      <img id="img24" style="--o: 0" src="images/025.png">
+    </li>
+    <li>
+      <img id="img25" style="--o: 0" src="images/026.png">
+    </li>
+    <li>
+      <img id="img26" style="--o: 0" src="images/027.png">
+    </li>
+    <li>
+      <img id="img27" style="--o: 0" src="images/028.png">
+    </li>
+    <li>
+      <img id="img28" style="--o: 0" src="images/029.png">
+    </li>
+    <li>
+      <img id="img29" style="--o: 0" src="images/030.png">
+    </li>
+    <li>
+      <img id="img30" style="--o: 0" src="images/031.png">
+    </li>
+    <!-- <li>
+      <img id="img31" style="--o: 0" src="images/032.png">
+    </li>
+    <li>
+      <img id="img32" style="--o: 0" src="images/033.png">
+    </li>
+    <li>
+      <img id="img33" style="--o: 0" src="images/034.png">
+    </li> -->
+    <li>
+      <img id="img34" style="--o: 0" src="images/035.png">
+    </li>
+    <!-- <li>
+      <img id="img35" style="--o: 0" src="images/036.png">
+    </li>
+    <li>
+      <img id="img36" style="--o: 0" src="images/037.png">
+    </li>
+    <li>
+      <img id="img37" style="--o: 0" src="images/038.png">
+    </li> -->
+    <li>
+      <img id="img38" style="--o: 0" src="images/039.png">
+    </li>
+    <!-- <li>
+      <img id="img39" style="--o: 0" src="images/040.png">
+    </li>
+    <li>
+      <img id="img40" style="--o: 0" src="images/041.png">
+    </li>
+    <li>
+      <img id="img41" style="--o: 0" src="images/042.png">
+    </li> -->
+    <li>
+      <img id="img42" style="--o: 0" src="images/043.png">
+    </li>
+    <li>
+      <img id="img43" style="--o: 0" src="images/044.png">
+    </li>
+    <li>
+      <img id="img44" style="--o: 0" src="images/045.png">
+    </li>
+    <li>
+      <img id="img45" style="--o: 0" src="images/046.png">
+    </li>
+    <li>
+      <img id="img46" style="--o: 0" src="images/047.png">
+    </li>
+    <li>
+      <img id="img47" style="--o: 0" src="images/048.png">
+    </li>
+    <!-- <li>
+      <img id="img48" style="--o: 0" src="images/049.png">
+    </li>
+    <li>
+      <img id="img49" style="--o: 0" src="images/050.png">
+    </li>
+    <li>
+      <img id="img50" style="--o: 0" src="images/051.png">
+    </li> -->
+    <li>
+      <img id="img51" style="--o: 0" src="images/052.png">
+    </li>
+    <!-- <li>
+      <img id="img52" style="--o: 0" src="images/053.png">
+    </li>
+    <li>
+      <img id="img53" style="--o: 0" src="images/054.png">
+    </li>
+    <li>
+      <img id="img54" style="--o: 0" src="images/055.png">
+    </li> -->
+    <li>
+      <img id="img55" style="--o: 0" src="images/056.png">
+    </li>
+    <!-- <li>
+      <img id="img56" style="--o: 0" src="images/057.png">
+    </li>
+    <li>
+      <img id="img57" style="--o: 0" src="images/058.png">
+    </li>
+    <li>
+      <img id="img58" style="--o: 0" src="images/059.png">
+    </li> -->
+    <li>
+      <img id="img59" style="--o: 0" src="images/060.png">
+    </li>
+    <!-- <li>
+      <img id="img60" style="--o: 0" src="images/061.png">
+    </li>
+    <li>
+      <img id="img61" style="--o: 0" src="images/062.png">
+    </li>
+    <li>
+      <img id="img62" style="--o: 0" src="images/063.png">
+    </li> -->
+    <li>
+      <img id="img63" style="--o: 0" src="images/064.png">
+    </li>
+    <!-- <li>
+      <img id="img64" style="--o: 0" src="images/065.png">
+    </li>
+    <li>
+      <img id="img65" style="--o: 0" src="images/066.png">
+    </li>
+    <li>
+      <img id="img66" style="--o: 0" src="images/067.png">
+    </li> -->
+    <li>
+      <img id="img67" style="--o: 0" src="images/068.png">
+    </li>
+    <!-- <li>
+      <img id="img68" style="--o: 0" src="images/069.png">
+    </li>
+    <li>
+      <img id="img69" style="--o: 0" src="images/070.png">
+    </li>
+    <li>
+      <img id="img70" style="--o: 0" src="images/071.png">
+    </li> -->
+    <li>
+      <img id="img71" style="--o: 0" src="images/072.png">
+    </li>
+    <!-- <li>
+      <img id="img72" style="--o: 0" src="images/073.png">
+    </li>
+    <li>
+      <img id="img73" style="--o: 0" src="images/074.png">
+    </li>
+    <li>
+      <img id="img74" style="--o: 0" src="images/075.png">
+    </li> -->
+    <li>
+      <img id="img75" style="--o: 0" src="images/076.png">
+    </li>
+    <!-- <li>
+      <img id="img76" style="--o: 0" src="images/077.png">
+    </li>
+    <li>
+      <img id="img77" style="--o: 0" src="images/078.png">
+    </li>
+    <li>
+      <img id="img78" style="--o: 0" src="images/079.png">
+    </li> -->
+    <li>
+      <img id="img79" style="--o: 0" src="images/080.png">
+    </li>
+    <!-- <li>
+      <img id="img80" style="--o: 0" src="images/081.png">
+    </li>
+    <li>
+      <img id="img81" style="--o: 0" src="images/082.png">
+    </li>
+    <li>
+      <img id="img82" style="--o: 0" src="images/083.png">
+    </li> -->
+    <li>
+      <img id="img83" style="--o: 0" src="images/084.png">
+    </li>
+    <!-- <li>
+      <img id="img44" style="--o: 0" src="images/085.png">
+    </li>
+    <li>
+      <img id="img85" style="--o: 0" src="images/086.png">
+    </li>
+    <li>
+      <img id="img86" style="--o: 0" src="images/087.png">
+    </li> -->
+    <li>
+      <img id="img87" style="--o: 0" src="images/088.png">
+    </li>
+    <!-- <li>
+      <img id="img88" style="--o: 0" src="images/089.png">
+    </li>
+    <li>
+      <img id="img89" style="--o: 0" src="images/090.png">
+    </li>
+    <li>
+      <img id="img90" style="--o: 0" src="images/091.png">
+    </li> -->
+    <li>
+      <img id="img91" style="--o: 0" src="images/092.png">
+    </li>
+    <!-- <li>
+      <img id="img92" style="--o: 0" src="images/093.png">
+    </li>
+    <li>
+      <img id="img93" style="--o: 0" src="images/094.png">
+    </li>
+    <li>
+      <img id="img94" style="--o: 0" src="images/095.png">
+    </li> -->
+    <li>
+      <img id="img95" style="--o: 0" src="images/096.png">
+    </li>
+    <!-- <li>
+      <img id="img96" style="--o: 0" src="images/097.png">
+    </li>
+    <li>
+      <img id="img97" style="--o: 0" src="images/098.png">
+    </li>
+    <li>
+      <img id="img98" style="--o: 0" src="images/099.png">
+    </li> -->
+    <li>
+      <img id="img99" style="--o: 0" src="images/0100.png">
+    </li>
+    <!-- <li>
+      <img id="img100" style="--o: 0" src="images/0101.png">
+    </li>
+    <li>
+      <img id="img101" style="--o: 0" src="images/0102.png">
+    </li>
+    <li>
+      <img id="img102" style="--o: 0" src="images/0103.png">
+    </li>
+    <li>
+      <img id="img103" style="--o: 0" src="images/0104.png">
+    </li> -->
+    <li>
+      <img id="img104" style="--o: 0" src="images/0105.png">
+    </li>
+    <!-- <li>
+      <img id="img105" style="--o: 0" src="images/0106.png">
+    </li>
+    <li>
+      <img id="img106" style="--o: 0" src="images/0107.png">
+    </li>
+    <li>
+      <img id="img107" style="--o: 0" src="images/0108.png">
+    </li> -->
+    <li>
+      <img id="img108" style="--o: 0" src="images/0109.png">
+    </li>
+    <!-- <li>
+      <img id="img109" style="--o: 0" src="images/0110.png">
+    </li>
+    <li>
+      <img id="img110" style="--o: 0" src="images/0111.png">
+    </li>
+    <li>
+      <img id="img111" style="--o: 0" src="images/0112.png">
+    </li> -->
+    <li>
+      <img id="img112" style="--o: 0" src="images/0113.png">
+    </li>
+    <!-- <li>
+      <img id="img113" style="--o: 0" src="images/0114.png">
+    </li>
+    <li>
+      <img id="img114" style="--o: 0" src="images/0115.png">
+    </li>
+    <li>
+      <img id="img115" style="--o: 0" src="images/0116.png">
+    </li> -->
+    <li>
+      <img id="img116" style="--o: 0" src="images/0117.png">
+    </li>
+    <!-- <li>
+      <img id="img117" style="--o: 0" src="images/0118.png">
+    </li>
+    <li>
+      <img id="img118" style="--o: 0" src="images/0119.png">
+    </li>
+    <li>
+      <img id="img119" style="--o: 0" src="images/0120.png">
+    </li> -->
+    <li>
+      <img id="img120" style="--o: 0" src="images/0121.png">
+    </li>
+    <!-- <li>
+      <img id="img121" style="--o: 0" src="images/0122.png">
+    </li>
+    <li>
+      <img id="img122" style="--o: 0" src="images/0123.png">
+    </li>
+    <li>
+      <img id="img123" style="--o: 0" src="images/0124.png">
+    </li> -->
+    <li>
+      <img id="img124" style="--o: 0" src="images/0125.png">
+    </li>
+    <!-- <li>
+      <img id="img125" style="--o: 0" src="images/0126.png">
+    </li>
+    <li>
+      <img id="img126" style="--o: 0" src="images/0127.png">
+    </li>
+    <li>
+      <img id="img127" style="--o: 0" src="images/0128.png">
+    </li> -->
+    <li>
+      <img id="img128" style="--o: 0" src="images/0129.png">
+    </li>
+    <!-- <li>
+      <img id="img129" style="--o: 0" src="images/0130.png">
+    </li>
+    <li>
+      <img id="img130" style="--o: 0" src="images/0131.png">
+    </li>
+    <li>
+      <img id="img131" style="--o: 0" src="images/0132.png">
+    </li> -->
+    <li>
+      <img id="img132" style="--o: 0" src="images/0133.png">
+    </li>
+    <!-- <li>
+      <img id="img133" style="--o: 0" src="images/0134.png">
+    </li>
+    <li>
+      <img id="img134" style="--o: 0" src="images/0135.png">
+    </li>
+    <li>
+      <img id="img135" style="--o: 0" src="images/0136.png">
+    </li> -->
+    <li>
+      <img id="img136" style="--o: 0" src="images/0137.png">
+    </li>
+    <!-- <li>
+      <img id="img137" style="--o: 0" src="images/0138.png">
+    </li>
+    <li>
+      <img id="img138" style="--o: 0" src="images/0139.png">
+    </li>
+    <li>
+      <img id="img139" style="--o: 0" src="images/0140.png">
+    </li> -->
+    <li>
+      <img id="img140" style="--o: 0" src="images/0141.png">
+    </li>
+    <!-- <li>
+      <img id="img141" style="--o: 0" src="images/0142.png">
+    </li>
+    <li>
+      <img id="img142" style="--o: 0" src="images/0143.png">
+    </li>
+    <li>
+      <img id="img143" style="--o: 0" src="images/0144.png">
+    </li> -->
+    <li>
+      <img id="img144" style="--o: 0" src="images/0145.png">
+    </li>
+    <!-- <li>
+      <img id="img145" style="--o: 0" src="images/0146.png">
+    </li>
+    <li>
+      <img id="img146" style="--o: 0" src="images/0147.png">
+    </li>
+    <li>
+      <img id="img147" style="--o: 0" src="images/0148.png">
+    </li> -->
+    <li>
+      <img id="img148" style="--o: 0" src="images/0149.png">
+    </li>
+    <!-- <li>
+      <img id="img149" style="--o: 0" src="images/0150.png">
+    </li>
+    <li>
+      <img id="img150" style="--o: 0" src="images/0151.png">
+    </li>
+    <li>
+      <img id="img151" style="--o: 0" src="images/0152.png">
+    </li> -->
+    <li>
+      <img id="img152" style="--o: 0" src="images/0153.png">
+    </li>
+    <!-- <li>
+      <img id="img153" style="--o: 0" src="images/0154.png">
+    </li>
+    <li>
+      <img id="img154" style="--o: 0" src="images/0155.png">
+    </li>
+    <li>
+      <img id="img155" style="--o: 0" src="images/0156.png">
+    </li>
+    <li>
+      <img id="img156" style="--o: 0" src="images/0157.png">
+    </li> -->
+    <li>
+      <img id="img157" style="--o: 0" src="images/0158.png">
+    </li>
+    <!-- <li>
+      <img id="img158" style="--o: 0" src="images/0159.png">
+    </li>
+    <li>
+      <img id="img159" style="--o: 0" src="images/0160.png">
+    <li>
+      <img id="img160" style="--o: 0" src="images/0161.png">
+    </li>
+    <li>
+      <img id="img161" style="--o: 0" src="images/0162.png">
+    </li> -->
+    <li>
+      <img id="img162" style="--o: 0" src="images/0163.png">
+    </li>
+    <!-- <li>
+      <img id="img163" style="--o: 0" src="images/0164.png">
+    </li>
+    <li>
+      <img id="img44" style="--o: 0" src="images/0165.png">
+    </li>
+    <li>
+      <img id="img165" style="--o: 0" src="images/0166.png">
+    </li>
+    <li>
+      <img id="img166" style="--o: 0" src="images/0167.png">
+    </li> -->
+    <li>
+      <img id="img167" style="--o: 0" src="images/0168.png">
+    </li>
+    <li>
+      <img id="img168" style="--o: 0" src="images/0169.png">
+    </li>
+    <li>
+      <img id="img169" style="--o: 0" src="images/0170.png">
+    <li>
+      <img id="img170" style="--o: 0" src="images/0171.png">
+    </li>
+    <li>
+      <img id="img171" style="--o: 0" src="images/0172.png">
+    </li>
+    <li>
+      <img id="img172" style="--o: 0" src="images/0173.png">
+    </li>
+    <li>
+      <img id="img173" style="--o: 0" src="images/0174.png">
+    </li>
+    <li>
+      <img id="img174" style="--o: 0" src="images/0175.png">
+    </li>
+    <li>
+      <img id="img175" style="--o: 0" src="images/0176.png">
+    </li>
+    <li>
+      <img id="img176" style="--o: 0" src="images/0177.png">
+    </li>
+    <li>
+      <img id="img177" style="--o: 0" src="images/0178.png">
+    </li>
+    <li>
+      <img id="img178" style="--o: 0" src="images/0179.png">
+    </li>
+    <li>
+      <img id="img179" style="--o: 0" src="images/0180.png">
+    </li>
+  </ul>
+</div>
+<section></section>
+</body>
+</html>
